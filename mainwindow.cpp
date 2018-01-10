@@ -15,6 +15,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    qint8 x = ui->spinBox->value();
-    ui->textBox1->setText(QString::number(x));
+    qint8 x1 = ui->spinBox->value();
+    qint8 x2 = ui->spinBox_2->value();
+    ui->textBox1->setText(QString::number(x1*x2));
 }
