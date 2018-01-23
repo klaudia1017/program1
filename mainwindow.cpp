@@ -15,8 +15,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    qint8 x1 = ui->spinBox->value();
-    qint8 x2 = ui->spinBox_2->value();
+    qreal x1 = ui->spinBox->value();
+    qreal x2 = ui->spinBox_2->value();
     if (ui->comboBox->currentText()=="x")
         {
             ui->textBox1->setText(QString::number(x1*x2));
@@ -35,20 +35,21 @@ void MainWindow::on_pushButton_clicked()
         }
     else if ((ui->comboBox->currentText()=="rów kwadr")&(x2!=0))
         {
-            qint8 a = ui->spinBox->value();
-            qint8 b = ui->spinBox_2->value();
-            qint8 c = ui->spinBox_3->value();
-            qint8 delta = b^2-4*a*c;
-            if (delta==0)
+            qreal a = ui->spinBox->value();
+            qreal b = ui->spinBox_2->value();
+            qreal c = ui->spinBox_3->value();
+            qreal delta = (b*b)-4*a*c;
+            qreal sqrtdelta=sqrt(delta);
+            if (sqrtdelta==0)
             {
                 ui->textBox1->setText(QString::number((-1*b)/(2*a)));
             }
-            else if (delta>0)
+            else if (sqrtdelta>0)
             {
-                ui->textBox1->setText(QString::number((delta-b)/(2*a)));
-                ui->textBox1_2->setText(QString::number((delta+b)/(2*a)));
+                ui->textBox1_2->setText(QString::number((sqrtdelta-b)/(2*a)));
+                ui->textBox1->setText(QString::number((sqrtdelta+b)/(2*a)));
             }
-            if (delta<0)
+            if (sqrtdelta<0)
             {
                 ui->textBox1->setText(QString::number((-1*b)/(2*a)));
             }
