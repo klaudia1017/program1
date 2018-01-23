@@ -39,17 +39,17 @@ void MainWindow::on_pushButton_clicked()
             qreal b = ui->spinBox_2->value();
             qreal c = ui->spinBox_3->value();
             qreal delta = (b*b)-4*a*c;
-            qreal sqrtdelta=sqrt(delta);
-            if (sqrtdelta==0)
+            qreal delta2=sqrt(delta);
+            if (delta2==0)
             {
                 ui->textBox1->setText(QString::number((-1*b)/(2*a)));
             }
-            else if (sqrtdelta>0)
+            else if (delta2>0)
             {
-                ui->textBox1_2->setText(QString::number((sqrtdelta-b)/(2*a)));
-                ui->textBox1->setText(QString::number((sqrtdelta+b)/(2*a)));
+                ui->textBox1_2->setText(QString::number((delta2-b)/(2*a)));
+                ui->textBox1->setText(QString::number((delta2+b)/(2*a)));
             }
-            if (sqrtdelta<0)
+            if (delta2<0)
             {
                 ui->textBox1->setText(QString::number((-1*b)/(2*a)));
             }
